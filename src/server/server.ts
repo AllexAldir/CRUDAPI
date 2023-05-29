@@ -2,7 +2,7 @@ import express from 'express';
 
 const serve = express(); //Configuração para a criação de rotas do servidor
 
-serve.get('/', (req, res) => {
+serve.get('/', (req, res) => { //Aqui coloca o metodo o qual irá ser feito
     return res.send('Hello world') //Resposta sendo enviada
 })
 
