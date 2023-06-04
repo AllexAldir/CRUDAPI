@@ -1,4 +1,6 @@
 import { serve } from "./server/server";
 
 
-serve.listen(8080, () => console.log('Chamada teste efetuda com sucesso')); //Impoortação da chamada
+serve.listen(process.env.PORT || 8085, (): void => {
+  console.log(`Chamada efetuada ${process.env.PORT}`) //Impoortação da chamadaz
+})

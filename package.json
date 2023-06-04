@@ -7,6 +7,7 @@
   "private": false,
   "dependencies": {
     "@types/http-status-codes": "^1.2.0",
+    "dotenv": "^16.1.4",
     "express": "^4.18.2",
     "http-status-code": "^2.1.0"
   },
