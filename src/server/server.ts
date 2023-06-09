@@ -1,6 +1,7 @@
 import express from 'express';
-import { router } from '../routes';
+import { router } from '../routes/rota';
 import 'dotenv/config'
+
 const serve = express(); //Configuração para a criação de rotas do servidor
 
 serve.use(express.json()) //Retornando as informações do front end para a api
