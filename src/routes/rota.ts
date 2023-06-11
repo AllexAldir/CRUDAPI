@@ -7,8 +7,6 @@ router.get('/', (req, res) => { //Aqui coloca o metodo o qual irá ser feito
   return res.send('Teste de funcionamento da API'); //Resposta sendo enviada
 })
 
-router.post('/testeEnvio', create.teste);
-
-router.post('/cidades', create.city)
+router.post('/cidades', create.validaRequest, create.queryValidatition, create.city)
 
 export { router }

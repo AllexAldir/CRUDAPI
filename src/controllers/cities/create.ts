@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import * as yup from 'yup';
 
@@ -10,9 +10,38 @@ interface City {
 }
 
 //Validando o atributo nome
-const validation: yup.Schema<City> = yup.object().shape({
-  nome: yup.string().required().min(2)
-});
+const validanome = yup.object().shape({
+  nome: yup.string().required().strict().min(3).max(9)
+})
+
+const validaquery = yup.object().shape({
+  filter: yup.string().required().strict().min(3)
+})
+
+//Criação do middlewares:
+
+export const queryValidatition: RequestHandler = async (req, res, next) => {
+  //Validação dos campos no front-end
+  try {
+    await validaquery.validate(req.query); //validaçao da lib
+    next();
+  } catch (e) {
+    res.json({ mensage: `Erro na requisicao ${e}` })
+
+  };
+}
+
+export const validaRequest: RequestHandler = async (req, res, next) => {
+  //Validação dos campos no front-end
+  try {
+    await validanome.validate(req.body); //validaçao da lib
+    next();
+  } catch (e) {
+    res.json({ mensage: `Erro na requisicao ${e}` })
+
+  };
+}
+/*---------------------------------------------------------------------------------------*/
 
 export const city = async (req: Request<{}, {}, City>, res: Response) => {
   //Reposta da requisicao
@@ -21,22 +50,5 @@ export const city = async (req: Request<{}, {}, City>, res: Response) => {
     mensage: 'ok aceito'
   }
 
-  let valideDate: City | undefined;
-  //Validação dos campos no front-end
-  try {
-    valideDate = await validation.validate(req.body)
-    //console.log(valideDate)
-    // return response.send('ok')
-  } catch (error) {
-    objetoGlobal.mensage = `Erro ao fazer a requisicao ${error}`
-    objetoGlobal.status = 401;
-
-  } finally {
-    res.status(objetoGlobal.status).send('Efetuada com sucesso');
-  }
-
-};
-
-export const teste = (request: Request, response: Response) => {
-  return response.status(StatusCodes.ACCEPTED).send(request.body)
+  res.send({ Dados: { status: objetoGlobal.status, mensage: objetoGlobal.mensage } })
 };
