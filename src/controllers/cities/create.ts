@@ -1,6 +1,10 @@
 import { Request, RequestHandler, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import * as yup from 'yup';
+import { validacao } from "../../shared/middlewares/validation";
+
+
+//const validaRequisicao = validacao.validacao
 
 //Criação da primeira controller:
 
@@ -20,27 +24,31 @@ const validaquery = yup.object().shape({
 
 //Criação do middlewares:
 
-export const queryValidatition: RequestHandler = async (req, res, next) => {
-  //Validação dos campos no front-end
-  try {
-    await validaquery.validate(req.query); //validaçao da lib
-    next();
-  } catch (e) {
-    res.json({ mensage: `Erro na requisicao ${e}` })
+//-> Validação de middlewares:
+export const requestQuery = validacao("query", validaquery);
+export const requestNome = validacao("query", validanome);
 
-  };
-}
+// export const queryValidatition: RequestHandler = async (req, res, next) => {
+//   //Validação dos campos no front-end
+//   try {
+//     await validaquery.validate(req.query); //validaçao da lib
+//     next();
+//   } catch (e) {
+//     res.json({ mensage: `Erro na requisicao ${e}` })
 
-export const validaRequest: RequestHandler = async (req, res, next) => {
-  //Validação dos campos no front-end
-  try {
-    await validanome.validate(req.body); //validaçao da lib
-    next();
-  } catch (e) {
-    res.json({ mensage: `Erro na requisicao ${e}` })
+//   };
+// }
 
-  };
-}
+// export const validaRequest: RequestHandler = async (req, res, next) => {
+//   //Validação dos campos no front-end
+//   try {
+//     await validanome.validate(req.body); //validaçao da lib
+//     next();
+//   } catch (e) {
+//     res.json({ mensage: `Erro na requisicao ${e}` })
+
+//   };
+// }
 /*---------------------------------------------------------------------------------------*/
 
 export const city = async (req: Request<{}, {}, City>, res: Response) => {
