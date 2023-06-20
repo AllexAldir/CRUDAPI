@@ -1,6 +1,7 @@
-/nodele_modules
-/package-lock.json
-/package-lock.json
+nodele_modules/
+package-lock.json
+package-lock.json
 .env
 build
 .eslintrc
+.editorconfig
