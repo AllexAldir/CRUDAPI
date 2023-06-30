@@ -12,11 +12,11 @@ router.get('/', (req, res) => { //Aqui coloca o metodo o qual irá ser feito
 
 router.post('/user', create.requestNome, create.city)
 
-router.get('/cidades/:id', getbyID.requestID, getbyID.respostaByid)//-> resposta passando um id como parâmetro
+router.get('/user/:id', getbyID.requestID, getbyID.respostaByid)//-> resposta passando um id como parâmetro
 
 router.put('/cidades/:id', updateByid.requestID, updateByid.updateByid,)//-> Rota de update por id
 
-router.delete('/user/:_id', deleteByid.requestID, deleteByid.deleteByid,)//-> Rota de update por id
+router.delete('/user/:_id', deleteByid.requestID, deleteByid.deleteByid)//-> Rota de update por id
 
 router.get('/cidades', getAllCities.getAllCities, getAllCities.city)//-> Rota para trazer todas as cidades
 //router.get('/cidades/:id', getAllCities.getAllCities, getAllCities.city)
