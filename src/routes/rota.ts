@@ -18,7 +18,7 @@ router.put('/cidades/:id', updateByid.requestID, updateByid.updateByid,)//-> Rot
 
 router.delete('/cidades/:id', deleteByid.requestID, deleteByid.deleteByid,)//-> Rota de update por id
 
-router.get('/cidades', getAllCities.getAllCities, getAllCities.city)//-> Rota para trazer todas as cidades
+router.get('/allPeople', getAllCities.getAllCities, getAllCities.city)//-> Rota para trazer todas as cidades
 //router.get('/cidades/:id', getAllCities.getAllCities, getAllCities.city)
 
 export { router }
