@@ -7,26 +7,24 @@ import { conectionDatabase } from '../../database/index';
 import mysql from 'mysql';
 import express from 'express';
 
-//Validando o atributo getAll
-// const getAll = yup.object().shape({
-//   nome: yup.string().notRequired().min(3).max(10),
-//   limit: yup.number().notRequired().moreThan(0),
-//   page: yup.number().notRequired().moreThan(0),
-//   filter: yup.string().notRequired()
-// })
 
-const query = z.object({
-  all: z.string()
-})
+// const query = z.object({
+//   all: z.string()
+// })
 
 
 //-> Validação de middlewares:
-export const getAllCities = validacao("query", query);
+//export const getAllCities = validacao("query", query);
 
 export const city: RequestHandler = async (req, res) => {
+  //Reposta da requisicao
+  const objetoGlobal = {
+    status: 200,
+    mensage: 'ok aceito'
+  }
 
   const DB = await conectionDatabase()//-> conexão com banco
-  console.log(DB)
+  //console.log(DB)
   const select = 'SELECT * FROM tbl_pessoa'; //-> select tabela
 
   DB.query(select, (error: any, results: any) => {
@@ -34,16 +32,10 @@ export const city: RequestHandler = async (req, res) => {
       console.error('Erro ao obter os dados do banco:', error);
       res.status(500).json({ error: 'Erro ao obter os dados do banco' });
     } else {
+      console.log('Acessou...')
       res.json(results);
     }
   });
 
-  //const queryParamans = req //consegue ver os paramêtros da request
-  //Reposta da requisicao
-  const objetoGlobal = {
-    status: 200,
-    mensage: 'ok aceito'
-  }
-
-  res.send({ Dados: { status: objetoGlobal.status, mensage: objetoGlobal.mensage } })
+  //res.send({ Dados: { status: objetoGlobal.status, mensage: objetoGlobal.mensage } })
 };
