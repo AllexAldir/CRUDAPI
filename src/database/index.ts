@@ -1,4 +1,4 @@
-import mysql from 'mysql';
+// import mysql from 'mysql';
 import 'dotenv/config'
 
 const params = {
@@ -10,12 +10,12 @@ const params = {
 
 export const conectionDatabase: any = async () => {
 
-  try {
-    return await mysql.createConnection(params); //-> conexão com database
-    //console.log('Conexão com o banco de dados foi estabelecida')
-  } catch (e) {
-    throw new Error(`Erro na conexão com banco ${e}`);
+  // try {
+  //   return await mysql.createConnection(params); //-> conexão com database
+  //   //console.log('Conexão com o banco de dados foi estabelecida')
+  // } catch (e) {
+  //   throw new Error(`Erro na conexão com banco ${e}`);
 
-  }
-
-}
+  // }
+  'tests'
+} 
