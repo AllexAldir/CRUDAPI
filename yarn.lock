@@ -828,6 +828,13 @@
   resolved "https://registry.npmjs.org/@types/node/-/node-20.2.5.tgz"
   integrity sha512-JJulVEQXmiY9Px5axXHeYGLSjhkZEnD+MDPDGbCbIAbMslkKwmygtZFy1X6s/075Yo94sf8GuSlFfPzysQrWZQ==
 
+"@types/oracledb@^5.3.0":
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/@types/oracledb/-/oracledb-5.3.0.tgz#7abba78fc8dcd54863dda465b73076391ca8f779"
+  integrity sha512-j197SWt6yWTtymJK3AhzlsrQr2AWk0Da5ngyS4MnixKQA3itMCuC6+5h5X99sSmZQeb9229WRShkqS80v75YDw==
+  dependencies:
+    "@types/node" "*"
+
 "@types/prettier@^2.1.5":
   version "2.7.3"
   resolved "https://registry.yarnpkg.com/@types/prettier/-/prettier-2.7.3.tgz#3e51a17e291d01d17d3fc61422015a933af7a08f"
@@ -3000,6 +3007,11 @@ optionator@^0.9.1:
     prelude-ls "^1.2.1"
     type-check "^0.4.0"
     word-wrap "^1.2.3"
+
+oracledb@^6.0.2:
+  version "6.0.2"
+  resolved "https://registry.yarnpkg.com/oracledb/-/oracledb-6.0.2.tgz#93de4d4e8b310bb6477dbe9b8a157774e44c3d3b"
+  integrity sha512-d87rreuIyVNkS7n1qw54rPpl6qoTAsh65NAza2ZkuqAzNfSkhdGaeA0cRTYKdvp1TGRO7VQXvmUkpcz1cKpI9Q==
 
 p-limit@^2.2.0:
   version "2.3.0"

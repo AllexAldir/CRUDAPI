@@ -2,7 +2,7 @@ import { RequestHandler } from "express";
 import { StatusCodes } from "http-status-codes";
 import * as yup from 'yup';
 import { validacao } from "../../shared/middlewares/validation";
-
+import zod from 'zod';
 //const validaRequisicao = validacao.validacao
 
 //Criação da primeira controller:

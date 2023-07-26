@@ -2,13 +2,6 @@ import { RequestHandler } from "express";
 //import { StatusCodes } from 'http-status-codes'
 
 
-//Interface de paginacao:
-// interface getAll {
-//   page?: number,
-//   limit?: number,
-//   fitler?: string
-// }
-
 type val = (field: 'body' | 'header' | 'params' | 'query', yup: any) => RequestHandler;//-> funcao que retorna um resquesthandler
 
 
